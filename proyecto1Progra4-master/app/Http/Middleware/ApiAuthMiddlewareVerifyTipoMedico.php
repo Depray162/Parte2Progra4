@@ -21,7 +21,7 @@ class ApiAuthMiddlewareVerifyTipoMedico
         $logged = $jwt->verifyTokenMed($token, true);
 
         // Aquí puedes cambiar 'Especialista' por el tipo de médico que deseas verificar
-        $requiredTipoMedico = 'administrador';
+        $requiredTipoMedico = 'Administrador';
 
         if (!is_bool($logged) && $logged->TipoMedico == $requiredTipoMedico) {
             return $next($request);

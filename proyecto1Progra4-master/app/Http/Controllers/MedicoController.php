@@ -42,7 +42,7 @@ class MedicoController extends Controller
                 'telefono' => 'required',
                 'email' => 'required | email',
                 'contrasena' => 'required',
-                'TipoMedico' => 'required'
+               
             ]
         );
 
