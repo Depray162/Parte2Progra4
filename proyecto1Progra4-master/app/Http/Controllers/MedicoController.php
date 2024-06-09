@@ -41,7 +41,8 @@ class MedicoController extends Controller
                 'especialidad' => 'required',
                 'telefono' => 'required',
                 'email' => 'required | email',
-                'contrasena' => 'required'
+                'contrasena' => 'required',
+                'TipoMedico' => 'required'
             ]
         );
 
@@ -63,7 +64,8 @@ class MedicoController extends Controller
                 'especialidad' => $request->especialidad,
                 'telefono' => $request->telefono,
                 'email' => $request->email,
-                'contrasena' => hash('sha256', $request->contrasena)
+                'contrasena' => hash('sha256', $request->contrasena),
+                'TipoMedico'=> $request->TipoMedico
             ]
         );
 

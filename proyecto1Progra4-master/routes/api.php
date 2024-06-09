@@ -11,11 +11,12 @@ use App\Http\Middleware\ApiAuthMiddlewarePac;
 use App\Http\Middleware\ApiAuthMiddlewareMed;
 use App\Http\Middleware\ApiAuthMiddlewareVerifyPac;
 use App\Http\Middleware\ApiAuthMiddlewareVerifyMed;
+use App\Http\Middleware\ApiAuthMiddlewareVerifyTipoMedico;
 
 Route::prefix('v1')->group(
     function () {
         //Rutas expecificas
-        Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']]);
+       
         //Rutas de paciente
         Route::group(['prefix' => '/paciente'], function () {
             Route::post('/registerPac', [PacienteController::class, 'registerPac']);
@@ -52,7 +53,7 @@ Route::prefix('v1')->group(
 
         //Rutas administrador Eddier (el mejor)
         Route::group(['prefix' => '/administrador'], function () {
-           
+            Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']]);
             Route::resource('/cita', CitaController::class, ['Except' => ['create', 'edit']]);
             Route::resource('/historial', HistorialController::class, ['Except' => ['create', 'edit']]);
