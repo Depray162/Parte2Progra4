@@ -9,5 +9,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FronEndMariaDB';
+  /*estos son ekementos a los que se puede accerer desde
+  cualquier parte del front
+  */
+public identity:any;
+
 }

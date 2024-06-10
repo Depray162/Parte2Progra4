@@ -22,8 +22,8 @@ class Medico extends Model
         "especialidad",
         "telefono",
         "email",
-        "contrasena"
-        
+        "contrasena",
+        "TipoMedico"
     ];
 
     public function citas()

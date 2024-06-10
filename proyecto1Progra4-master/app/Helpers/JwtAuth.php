@@ -72,6 +72,7 @@ class JwtAuth
                 'iss' => $medico->idMedico,
                 'cedula' => $medico->cedula,
                 'nombre' => $medico->nombre,
+                'TipoMedico' => $medico->TipoMedico,
               'tipo' => 'medico',
                 'exp' => time() + (1200000)//(20 * 60) //Equivale a 20 minutos
             );
