@@ -17,7 +17,7 @@ class ApiAuthMiddlewarePac
     public function handle(Request $request, Closure $next): Response
     {
         $jwt = new JwtAuth();
-        $token = $request->bearerToken();
+        $token=$request->header('bearerToken');
         $logged = $jwt->verifyTokenPac($token);
 
         if ($logged) {
