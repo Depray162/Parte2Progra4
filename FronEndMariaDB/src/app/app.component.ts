@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { LandingComponentsComponent } from './landing-components/landing-components.component';
+import { RouterOutlet,RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,LandingComponentsComponent],
+  imports: [RouterOutlet,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FronEndMariaDB';
+  /*estos son ekementos a los que se puede accerer desde
+  cualquier parte del front
+  */
+public identity:any;
+
+
+
+
 }
