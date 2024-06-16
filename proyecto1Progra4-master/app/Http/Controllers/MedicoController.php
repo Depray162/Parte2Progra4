@@ -179,6 +179,20 @@ class MedicoController extends Controller
         }
     }
 
+    public function getIdentity(Request $request){
+        $jwt=new JwtAuth();
+        $token=$request->header('bearerToken');
+        if(isset($token)){
+            $response=$jwt->verifyTokenMed($token,true);
+        }else{
+            $response=array(
+                'status'=>404,
+                'message'=>'token (bearertoken) no encontrado',
+            );
+        }
+        return response()->json($response);
+    }
+
     public function registerMed(request $request)
     {
         $validator = Validator::make(

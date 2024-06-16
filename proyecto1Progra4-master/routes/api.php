@@ -34,6 +34,7 @@ Route::prefix('v1')->group(
         //Rutas de medico
         Route::group(['prefix' => '/medico'], function () {
             Route::post('/registerMed', [MedicoController::class, 'registerMed']);
+            Route::get('/getidentity',[MedicoController::class,'getIdentity'])->middleware(ApiAuthMiddlewareMed::class);
             Route::post('/loginMed', [MedicoController::class, 'loginMed'])->withoutMiddleware([ApiAuthMiddlewareMed::class, ApiAuthMiddlewareVerifyMed::class]);
             Route::get('/{id}', [MedicoController::class, 'show'])->middleware([ApiAuthMiddlewareMed::class, ApiAuthMiddlewareVerifyMed::class]);
             Route::put('/actualizar/{id}', [MedicoController::class, 'update'])->middleware([ApiAuthMiddlewareMed::class, ApiAuthMiddlewareVerifyMed::class]);
