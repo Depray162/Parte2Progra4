@@ -20,6 +20,7 @@ Route::prefix('v1')->group(
         //Rutas de paciente
         Route::group(['prefix' => '/paciente'], function () {
             Route::post('/registerPac', [PacienteController::class, 'registerPac']);
+            Route::get('/getidentity',[PacienteController::class,'getIdentity'])->middleware(ApiAuthMiddlewarePac::class);
             Route::post('/loginPac', [PacienteController::class, 'loginPac'])->withoutMiddleware([ApiAuthMiddlewarePac::class, ApiAuthMiddlewareVerifyPac::class]);
             Route::get('/{id}', [PacienteController::class, 'show'])->middleware([ApiAuthMiddlewarePac::class, ApiAuthMiddlewareVerifyPac::class]);
             Route::put('/actualizar/{id}', [PacienteController::class, 'update'])->middleware([ApiAuthMiddlewarePac::class, ApiAuthMiddlewareVerifyPac::class]);

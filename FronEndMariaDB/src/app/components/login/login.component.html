@@ -16,13 +16,15 @@
       <div class="card p-4">
         <div class="card-body">
           <h3 class="card-title text-center">Inicio de Sesion</h3>
-          <form>
+          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
-                placeholder="Cedula"
+                placeholder="Cédula"
                 required
+                [(ngModel)]="paciente.cedula"
+                name="cedula"
               />
             </div>
             <div class="form-group">
@@ -30,7 +32,8 @@
                 type="password"
                 class="form-control"
                 placeholder="Contraseña"
-                required
+                [(ngModel)]="paciente.contrasena"
+                name="password"
               />
             </div>
             <button type="submit" class="btn btn-success btn-block">
@@ -39,14 +42,17 @@
             <div class="text-center mt-3">
               <a href="#" class="text-secondary">Olvidaste tu contraseña?</a>
             </div>
-            @if(!identity){
             <div class="text-center mt-3">
               <a class="text-secondary" [routerLink]="['/loginDoc']"
                 >Eres Medico?</a
               >
             </div>
-            }
           </form>
+          @if(status===0){
+          <p>cedula y/o contraseña incorrecta</p>
+          }@else if (status===1) {
+          <p>Error, desde el servidor. Contacte al administrador</p>
+          }
         </div>
       </div>
     </div>
