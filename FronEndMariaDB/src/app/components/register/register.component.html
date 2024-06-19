@@ -1,1 +1,62 @@
-<p>register works!</p>
+<div class="col-md-12 mt-4">
+    <div class="text-center mt-3">
+
+        <h3>Registro de Pacientes</h3>
+    </div>
+    
+    <span>
+      @switch (status) {
+        @case (0) {
+          <div class="alert alert-success"><p>Registro exitoso!</p></div>
+          
+        }
+        @case (1) {
+          <div class="alert alert-warning"><p>No se pudo agregar el paciente!</p></div>
+          
+        }
+        @case (2) {
+          <div class="alert alert-danger"><p>Error de servidor!</p></div>
+        
+        }
+      }
+    </span>
+    <form class="col-md-8 mx-auto" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+      <div class="form-group">
+        <label for="cedula">Cédula</label>
+        <input id="cedula" type="text" #cedula="ngModel" class="form-control" name="cedula" required [(ngModel)]="paciente.cedula" />
+        
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" #nombre="ngModel" class="form-control" name="nombre" required [(ngModel)]="paciente.nombre" />
+        
+        <label for="edad">Edad</label>
+        <input id="edad" type="number" #edad="ngModel" class="form-control" name="edad" required [(ngModel)]="paciente.edad" />
+        
+        <label for="direccion">Dirección</label>
+        <input id="direccion" type="text" #direccion="ngModel" class="form-control" name="direccion" required [(ngModel)]="paciente.direccion" />
+        
+        <div class="form-group">
+            <label for="telefono">Teléfono (mínimo 12 números)</label>
+            <input id="telefono" type="tel" #telefono="ngModel" class="form-control" name="telefono" required
+                   [(ngModel)]="paciente.telefono" pattern="[0-9]{12}" />
+            <small class="form-text text-muted">Debe contener exactamente 12 números.</small>
+          </div>
+        <label for="email">Email</label>
+        <input id="email" type="email" #email="ngModel" class="form-control" name="email" required [(ngModel)]="paciente.email" />
+        
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" type="password" #contrasena="ngModel" class="form-control" name="contrasena" required [(ngModel)]="paciente.contrasena" />
+      </div>
+      
+      <div class="text-center mt-3">
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="signupForm.invalid">Registrar</button>
+      </div>
+
+      <div class="text-center mt-3">
+        <a [routerLink]="['/login']">¿Ya tienes una cuenta? Inicia sesión</a>
+      </div>
+      <div class="text-center mt-3">
+        <a class="text-secondary" [routerLink]="['/loginDoc']">Eres Medico?</a>
+      </div>
+    </form>
+  </div>
+  

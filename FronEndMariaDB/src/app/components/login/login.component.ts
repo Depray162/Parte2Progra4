@@ -53,4 +53,13 @@ export class LoginComponent {
     })
   }
 
+
+
+
+  onRegistroSubmit(registroForm: any) {
+    // Lógica para registrar nuevo usuario
+    console.log('Registrando nuevo usuario...');
+    
+  }
+
 }
