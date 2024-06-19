@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+
+import { RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Doctor } from '../../model/doctor';
 import { DocService } from '../../services/doc.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login-doc',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink, RouterOutlet],
   templateUrl: './login-doc.component.html',
   styleUrl: './login-doc.component.css',
   providers:[DocService]

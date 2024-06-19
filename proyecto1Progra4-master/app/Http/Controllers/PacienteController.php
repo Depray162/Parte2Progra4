@@ -233,4 +233,18 @@ class PacienteController extends Controller
 
         return response()->json($data, 201);
     }
+
+    public function getIdentity(Request $request){
+        $jwt=new JwtAuth();
+        $token=$request->header('bearerToken');
+        if(isset($token)){
+            $response=$jwt->verifyTokenPac($token,true);
+        }else{
+            $response=array(
+                'status'=>404,
+                'message'=>'token (bearertoken) no encontrado',
+            );
+        }
+        return response()->json($response);
+    }
 }
