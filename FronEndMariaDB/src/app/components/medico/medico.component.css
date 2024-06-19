@@ -1,0 +1,26 @@
+.header-section {
+    background-color: #2575fc; /* Ensure you have this image or a similar one */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.header-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.header-section .btn {
+    margin: 10px;
+}
+
+.scholarship-section {
+    padding: 50px 0;
+}
+
+.scholarship-box {
+    padding: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
