@@ -52,4 +52,10 @@ export class PacService {
       obtenerusers(): Observable<{ status: number, message: string, data: Paciente[] }> {
         return this._http.get<{ status: number, message: string, data: Paciente[] }>(`${this.urlAPI}paciente`);
       }
+
+      register(paciente: Paciente): Observable<any> {
+        let pacienteJson = JSON.stringify(paciente);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.post(this.urlAPI + 'paciente/registerPac', pacienteJson, { headers });
+      }
 }
