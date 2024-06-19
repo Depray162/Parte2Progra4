@@ -41,7 +41,7 @@ export class DocService {
     let params = 'data=' + doctorJson;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     let options = { headers };
-    return this._http.post(this.urlAPI + 'user/signup', params, options);
+    return this._http.post(this.urlAPI + 'administrador/medico', params, options);
   }
 
   getIdentityFromStorage() {
@@ -57,7 +57,7 @@ export class DocService {
   }
 
   obtenerusers(): Observable<{ status: number, message: string, data: Doctor[] }> {
-    return this._http.get<{ status: number, message: string, data: Doctor[] }>(`${this.urlAPI}doctor`);
+    return this._http.get<{ status: number, message: string, data: Doctor[] }>(`${this.urlAPI}administrador/medico`);
   }
 
 
