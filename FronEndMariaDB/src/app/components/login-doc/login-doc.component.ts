@@ -41,7 +41,7 @@ export class LoginDocComponent {
             next:(resp:any)=>{
               console.log(resp);
               sessionStorage.setItem('identity',JSON.stringify(resp));
-              this._router.navigate(['']);
+              this._router.navigate(['medicoCompont']);
             },
             error:(error:Error)=>{
             }
