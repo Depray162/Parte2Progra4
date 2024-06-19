@@ -17,10 +17,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginDocComponent {
 
-
   public status:number;
   public doctor:Doctor;
   constructor(
+    
     private docService:DocService,
     private _router:Router,
     private _routes:ActivatedRoute
@@ -41,6 +41,7 @@ export class LoginDocComponent {
             next:(resp:any)=>{
               console.log(resp);
               sessionStorage.setItem('identity',JSON.stringify(resp));
+
               this._router.navigate(['medicoCompont']);
             },
             error:(error:Error)=>{
@@ -49,7 +50,6 @@ export class LoginDocComponent {
         }else{
           this.status=0;
         }
-        
       },
       error:(err:any)=>{
         this.status=1;
@@ -57,6 +57,6 @@ export class LoginDocComponent {
     })
   }
 
-
+  
 
 }

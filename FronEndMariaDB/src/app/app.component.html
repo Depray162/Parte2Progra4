@@ -15,43 +15,17 @@
             <a class="nav-link" href="#">Planes Familiares</a>
           </li>
         </ul>
-        @if (!identity) {
+        @if (identity) {
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="btn btn-primary" [routerLink]="['/login']">Ingresar</a>
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link ms-2" (click)="confirmSignOut()"> {{ identity.nombre }} </a>
           </li>
         </ul>
         } @else {
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item d-flex align-items-center">
-            @if (identity.image) {
-            <img [src]="identity.image" alt="Usuario autenticado" class="user-image">
-
-
-
-            } @else {
-            <img src="../assets/" alt="Usuario autenticado" class="user-image">
-            }
+          <li class="nav-item">
+            <a class="btn btn-primary" [routerLink]="['/login']">Ingresar</a>
           </li>
-
-          <!-- Example single danger button -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Action
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-          </div>
-
-
         </ul>
         }
       </div>
