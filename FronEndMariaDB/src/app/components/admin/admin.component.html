@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Control de Medicos</h2>
+      <button class="btn btn-primary mb-2" (click)="addUser()">
+        Agregar nuevo medico
+      </button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th>Cedula</th>
+            <th>Telefono</th>
+            <th>Correo Electronico</th>
+            <th>Tipo Medico</th>
+
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let doctor of Doctores; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <img [src]="" alt="avatar" class="rounded-circle" width="30" />
+              {{ doctor.nombre }}
+            </td>
+            <td>{{ doctor.especialidad }}</td>
+            <td>{{ doctor.cedula }}</td>
+            <td>{{ doctor.telefono }}</td>
+            <td>{{ doctor.email }}</td>
+            <td>{{ doctor.TipoMedico }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editUser(doctor)">
+                <i class="fas fa-cog"></i>
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteUser(doctor)"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

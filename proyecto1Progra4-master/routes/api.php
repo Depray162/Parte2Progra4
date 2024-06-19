@@ -56,7 +56,7 @@ Route::prefix('v1')->group(
         //Rutas administrador Eddier (el mejor)
         Route::group(['prefix' => '/administrador'], function () {
             Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
-            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
+            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']]);
             Route::resource('/cita', CitaController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/historial', HistorialController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             route::resource('/expediente', ExpedienteController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
