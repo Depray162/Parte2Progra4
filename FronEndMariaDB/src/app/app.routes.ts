@@ -21,7 +21,7 @@ export const routes: Routes = [
 
 
 
-    {path:'updateDoc',component:UpdateDocComponent},
+    { path: 'editMedico/:id', component: UpdateDocComponent },
     {path:'register',component: RegisterComponent},
     {path:'registerMed',component: RegisterMedComponent},
     {path:'adminPaciente',component: AdminPacienteComponent},

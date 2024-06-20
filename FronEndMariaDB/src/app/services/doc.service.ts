@@ -78,5 +78,15 @@ export class DocService {
   eliminarDoc(id: number): Observable<any> {
     return this._http.delete(`${this.urlAPI}administrador/medico/${id}`);
   }
+  
+  getDoctorById(id: number): Observable<Doctor> {
+    return this._http.get<Doctor>(`${this.urlAPI}administrador/medico/${id}`);
+  }
+
+  updateDoctor(doctor: Doctor): Observable<any> {
+    const params = JSON.stringify(doctor);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(`${this.urlAPI}administrador/medico/${doctor.idMedico}`, params, { headers });
+  }
 
 }
