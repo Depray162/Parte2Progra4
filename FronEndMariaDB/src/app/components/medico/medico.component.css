@@ -4,11 +4,15 @@
     background-position: center;
     padding: 100px 0;
     color: #fff;
+    padding: 0;
 }
 
 .header-section h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-section .btn {
