@@ -38,6 +38,8 @@ export class PacService {
       }
 
       getIdentityFromStorage() {
+
+        
         let identity = sessionStorage.getItem('identity');
         if (identity) {
           return JSON.parse(identity);
@@ -50,7 +52,17 @@ export class PacService {
       }
     
       obtenerusers(): Observable<{ status: number, message: string, data: Paciente[] }> {
-        return this._http.get<{ status: number, message: string, data: Paciente[] }>(`${this.urlAPI}administrador/paciente`);
+        let headers;
+        let bearerToken = sessionStorage.getItem('token');
+        if (bearerToken) {
+          headers = new HttpHeaders().set('Content-Type', 'application/json')
+            .set('bearerToken', bearerToken);
+        } else {
+          headers = new HttpHeaders().set('Content-Type', 'application/json');
+        }
+        let options = { headers };
+
+        return this._http.get<{ status: number, message: string, data: Paciente[] }>(`${this.urlAPI}administrador/paciente`, options);
       }
 
       register(paciente: Paciente): Observable<any> {
@@ -60,6 +72,16 @@ export class PacService {
       }
 
       eliminarPac(id: number): Observable<any> {
-        return this._http.delete(`${this.urlAPI}administrador/paciente/${id}`);
+        let headers;
+        let bearerToken = sessionStorage.getItem('token');
+        if (bearerToken) {
+          headers = new HttpHeaders().set('Content-Type', 'application/json')
+            .set('bearerToken', bearerToken);
+        } else {
+          headers = new HttpHeaders().set('Content-Type', 'application/json');
+        }
+        let options = { headers };
+
+        return this._http.delete(`${this.urlAPI}administrador/paciente/${id}`, options);
       }
 }
