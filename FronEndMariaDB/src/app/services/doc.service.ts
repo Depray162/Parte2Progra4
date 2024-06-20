@@ -13,12 +13,12 @@ export class DocService {
   constructor(private _http: HttpClient) {
     this.urlAPI = server.url;
   }
-  private sessionStorageKey = 'identity'; // Cambiado para reflejar la clave usada en sessionStorage
+  private sessionStorageKey = 'identity';
 
   login(doctor: Doctor): Observable<any> {
     let doctorJson = JSON.stringify(doctor);
 
-    let params = {cedula: doctor.cedula,contrasena: doctor.contrasena};
+    let params = { cedula: doctor.cedula, contrasena: doctor.contrasena };
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     let options = { headers };
     return this._http.post(this.urlAPI + 'medico/loginMed', params, options);
@@ -73,6 +73,10 @@ export class DocService {
       headers = headers.set('bearerToken', bearerToken);
     }
     return headers;
+  }
+
+  eliminarDoc(id: number): Observable<any> {
+    return this._http.delete(`${this.urlAPI}administrador/medico/${id}`);
   }
 
 }

@@ -51,8 +51,20 @@ export class AdminComponent implements OnInit {
     // Implementa la lógica para editar un usuario
   }
 
-  deleteUser(user: any): void {
-    // Implementa la lógica para eliminar un usuario
+  deleteUser(doctor: Doctor): void {
+    if (confirm(`¿Estás seguro de que deseas eliminar al médico ${doctor.nombre}?`)) {
+      this.docService.eliminarDoc(doctor.idMedico).subscribe({
+        next: response => {
+          console.log('Response from server:', response);
+          this.Doctores = this.Doctores.filter(d => d.idMedico !== doctor.idMedico);
+        },
+        error: error => {
+          console.error('Error al eliminar el médico', error);
+        }
+      });
+    }
   }
+  
+  
 }
 

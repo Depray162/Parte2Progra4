@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { RouterLink } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink,RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Doctor } from '../../model/doctor';
 import { DocService } from '../../services/doc.service';
@@ -41,8 +40,7 @@ export class LoginDocComponent {
             next:(resp:any)=>{
               console.log(resp);
               sessionStorage.setItem('identity',JSON.stringify(resp));
-
-              this._router.navigate(['medicoCompont']);
+  this._router.navigate(['']);
             },
             error:(error:Error)=>{
             }
