@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Control de Pacientes</h2>
+      <button class="btn btn-primary mb-2" [routerLink]="['/register']">
+        Agregar nuevo Paciente
+      </button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Edad</th>
+            <th>Direccion</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of Pacientes; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              {{ paciente.nombre }}
+            </td>
+            <td>{{ paciente.cedula }}</td>
+            <td>{{ paciente.edad }}</td>
+            <td>{{ paciente.direccion }}</td>
+            <td>
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="editUser(paciente)"
+              >
+                <i class="fas fa-cog"></i>
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteUser(paciente)"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
