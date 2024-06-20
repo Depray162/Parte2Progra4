@@ -31,6 +31,7 @@ export class RegisterComponent {
         if (response.status === 201) {
           form.reset();
           this.changeStatus(0);
+          this.router.navigate(['/login']);
         } else {
           this.changeStatus(1);
         }
