@@ -37,6 +37,9 @@ export class DocService {
     return this._http.get(this.urlAPI + 'medico/getidentity', options);
   }
   create(doctor: Doctor): Observable<any> {
+
+    
+
     let doctorJson = JSON.stringify(doctor);
     let params = 'data=' + doctorJson;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
@@ -57,7 +60,16 @@ export class DocService {
   }
 
   obtenerusers(): Observable<{ status: number, message: string, data: Doctor[] }> {
-    return this._http.get<{ status: number, message: string, data: Doctor[] }>(`${this.urlAPI}administrador/medico`);
+    let headers;
+    let bearerToken = sessionStorage.getItem('token');
+    if (bearerToken) {
+      headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('bearerToken', bearerToken);
+    } else {
+      headers = new HttpHeaders().set('Content-Type', 'application/json');
+    }
+    let options = { headers };
+    return this._http.get<{ status: number, message: string, data: Doctor[] }>(`${this.urlAPI}administrador/medico`, options);
   }
 
 
@@ -76,17 +88,26 @@ export class DocService {
   }
 
   eliminarDoc(id: number): Observable<any> {
-    return this._http.delete(`${this.urlAPI}administrador/medico/${id}`);
+    let headers;
+    let bearerToken = sessionStorage.getItem('token');
+    if (bearerToken) {
+      headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('bearerToken', bearerToken);
+    } else {
+      headers = new HttpHeaders().set('Content-Type', 'application/json');
+    }
+    let options = { headers };
+    return this._http.delete(`${this.urlAPI}administrador/medico/${id}`, options);
   }
-  
+
   getDoctorById(id: number): Observable<Doctor> {
-    return this._http.get<Doctor>(`${this.urlAPI}administrador/medico/${id}`);
+    return this._http.get<Doctor>(`${this.urlAPI}administrador/medico/${id}` );
   }
 
   updateDoctor(doctor: Doctor): Observable<any> {
     const params = JSON.stringify(doctor);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this._http.put(`${this.urlAPI}administrador/medico/${doctor.idMedico}`, params, { headers });
+    return this._http.put(`${this.urlAPI}administrador/medico/${doctor.idMedico}`, params, { headers});
   }
 
 }

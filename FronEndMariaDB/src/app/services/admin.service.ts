@@ -19,12 +19,22 @@ export class AdminService {
   }
 
   create(doctor: Doctor): Observable<any> {
-    let doctorJson = JSON.stringify(doctor);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    let bearerToken = sessionStorage.getItem('token');
+    
+    if (bearerToken) {
+      headers = headers.set('bearerToken', bearerToken);
+    }
+    
+    let doctorJson = JSON.stringify(doctor);
+    
     return this._http.post(this.urlAPI + 'administrador/medico', doctorJson, { headers });
   }
+  
 
   createPaciente(paciente: Paciente): Observable<any> {
+
+
     let doctorJson = JSON.stringify(paciente);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(this.urlAPI + 'administrador/paciente', doctorJson, { headers });

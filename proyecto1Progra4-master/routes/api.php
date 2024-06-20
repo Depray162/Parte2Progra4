@@ -34,7 +34,6 @@ Route::prefix('v1')->group(
 
         //Rutas de medico
         Route::group(['prefix' => '/medico'], function () {
-            Route::post('/registerMed', [MedicoController::class, 'registerMed']);
             Route::get('/getidentity',[MedicoController::class,'getIdentity'])->middleware(ApiAuthMiddlewareMed::class);
             Route::post('/loginMed', [MedicoController::class, 'loginMed'])->withoutMiddleware([ApiAuthMiddlewareMed::class, ApiAuthMiddlewareVerifyMed::class]);
             Route::get('/{id}', [MedicoController::class, 'show'])->middleware([ApiAuthMiddlewareMed::class, ApiAuthMiddlewareVerifyMed::class]);
@@ -55,8 +54,8 @@ Route::prefix('v1')->group(
 
         //Rutas administrador Eddier (el mejor)
         Route::group(['prefix' => '/administrador'], function () {
-            Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']]);
-            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']]);
+            Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
+            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/cita', CitaController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/historial', HistorialController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             route::resource('/expediente', ExpedienteController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
