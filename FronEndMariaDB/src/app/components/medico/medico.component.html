@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>administracion de la clinica MariaDB</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
-</head>
-<body>
-
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Header Section -->
     <header class="header-section text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Modulo de administrador</h1>
-               
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Modulo de administrador</h1>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- Scholarship Section -->
     <section class="scholarship-section text-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <button type="button" class="btn btn-warning btn-lg">
-                <h3>Modificar Pacientes</h3>
-              </button>
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-primary btn-lg" [routerLink]="['/adminComponent']">
-                <h3>Modificar Doctores</h3>
-              </button>
-            </div>
-            <div class="col-md-4">
-              <button type="button" class="btn btn-info btn-lg" [routerLink]="['']">
-                <h3>Modificar Citas</h3>
-              </button>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <button
+              type="button"
+              class="btn btn-warning btn-lg"
+              [routerLink]="['/adminPaciente']"
+            >
+              <h3>Administrar Pacientes</h3>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [routerLink]="['/adminComponent']"
+            >
+              <h3>Administrar Doctores</h3>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button
+              type="button"
+              class="btn btn-info btn-lg"
+              [routerLink]="['']"
+            >
+              <h3>Modificar Citas</h3>
+            </button>
           </div>
         </div>
-      </section>
-      
+      </div>
+    </section>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </html>

@@ -5,7 +5,7 @@ import { LoginDocComponent } from './components/login-doc/login-doc.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MedicoComponent } from './components/medico/medico.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { AdminPacienteComponent } from './components/admin-paciente/admin-paciente.component';
 import { UpdateDocComponent } from './components/update-doc/update-doc.component';
 import { RegisterMedComponent } from './components/register-medico/register-medico.component';
 
@@ -24,5 +24,5 @@ export const routes: Routes = [
     {path:'updateDoc',component:UpdateDocComponent},
     {path:'register',component: RegisterComponent},
     {path:'registerMed',component: RegisterMedComponent},
-
+    {path:'adminPaciente',component: AdminPacienteComponent},
 ];
