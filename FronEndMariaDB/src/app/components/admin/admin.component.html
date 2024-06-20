@@ -32,10 +32,11 @@
             <td>{{ doctor.email }}</td>
             <td>{{ doctor.TipoMedico }}</td>
             <td>
-              <button class="btn btn-primary btn-sm" (click)="editUser(doctor)">
+              
+              <button class="btn btn-primary btn-sm" [routerLink]="['/editMedico', doctor.idMedico]">
                 <i class="fas fa-cog"></i>
-
               </button>
+              
               <button
                 class="btn btn-danger btn-sm"
                 (click)="deleteUser(doctor)"

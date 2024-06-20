@@ -1,1 +1,130 @@
-<p>update-doc works!</p>
+<div class="col-md-12 mt-4">
+    <div class="text-center mt-3">
+      <h3>Editar Médico</h3>
+    </div>
+  
+    <span>
+        @switch (status) { @case (0) {
+        <div class="alert alert-success"><p>Editado exitosamente!</p></div>
+    
+        } @case (1) {
+        <div class="alert alert-warning">
+          <p>No se pudo modificar el paciente!</p>
+        </div>
+    
+        } @case (2) {
+        <div class="alert alert-danger"><p>Error de servidor!</p></div>
+    
+        } }
+      </span>
+    <form
+      class="col-md-8 mx-auto"
+      #editForm="ngForm"
+      (ngSubmit)="onSubmit(editForm)"
+    >
+      <div class="form-group">
+        <label for="numColegiado">Número de colegiado</label>
+        <input
+          id="numColegiado"
+          type="text"
+          #numColegiado="ngModel"
+          class="form-control"
+          name="numColegiado"
+          required
+          [(ngModel)]="doctor.numColegiado"
+        />
+  
+        <label for="cedula">Cédula</label>
+        <input
+          id="cedula"
+          type="text"
+          #cedula="ngModel"
+          class="form-control"
+          name="cedula"
+          required
+          [(ngModel)]="doctor.cedula"
+        />
+  
+        <label for="nombre">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          #nombre="ngModel"
+          class="form-control"
+          name="nombre"
+          required
+          [(ngModel)]="doctor.nombre"
+        />
+  
+        <label for="especialidad">Especialidad</label>
+        <input
+          id="especialidad"
+          type="text"
+          #especialidad="ngModel"
+          class="form-control"
+          name="especialidad"
+          required
+          [(ngModel)]="doctor.especialidad"
+        />
+  
+        <div class="form-group">
+          <label for="telefono">Teléfono (mínimo 12 números)</label>
+          <input
+            id="telefono"
+            type="tel"
+            #telefono="ngModel"
+            class="form-control"
+            name="telefono"
+            required
+            [(ngModel)]="doctor.telefono"
+            pattern="[0-9]{12}"
+          />
+          <small class="form-text text-muted">Debe contener exactamente 12 números.</small>
+        </div>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          #email="ngModel"
+          class="form-control"
+          name="email"
+          required
+          [(ngModel)]="doctor.email"
+        />
+  
+        <label for="contrasena">Contraseña</label>
+        <input
+          id="contrasena"
+          type="password"
+          #contrasena="ngModel"
+          class="form-control"
+          name="contrasena"
+          required
+          [(ngModel)]="doctor.contrasena"
+        />
+  
+        <label for="tipoMed">Tipo de Médico ("Administrador" o "Corriente")</label>
+        <input
+          id="tipoMed"
+          type="text"
+          #tipoMed="ngModel"
+          class="form-control"
+          name="tipoMed"
+          required
+          [(ngModel)]="doctor.TipoMedico"
+        />
+        <small class="form-text text-muted">Respete las mayúsculas.</small>
+      </div>
+  
+      <div class="text-center mt-3">
+        <button
+          type="submit"
+          class="btn btn-primary mt-2"
+          [disabled]="editForm.invalid"
+        >
+          Actualizar
+        </button>
+      </div>
+    </form>
+  </div>
+  
