@@ -1,6 +1,6 @@
 <div class="col-md-12 mt-4">
   <div class="text-center mt-3">
-    <h3>Registro de Pacientes</h3>
+    <h3>Registro de Medicos</h3>
   </div>
 
   <span>
@@ -9,7 +9,7 @@
 
     } @case (1) {
     <div class="alert alert-warning">
-      <p>No se pudo agregar el paciente!</p>
+      <p>No se pudo agregar el medico!</p>
     </div>
 
     } @case (2) {
@@ -23,7 +23,18 @@
     (ngSubmit)="onSubmit(signupForm)"
   >
     <div class="form-group">
-      <label for="cedula">Cédula</label>
+      <label for="numColegiado">Numero de colegiado</label>
+      <input
+        id="numColegiado"
+        type="text"
+        #numColegiado="ngModel"
+        class="form-control"
+        name="numColegiado"
+        required
+        [(ngModel)]="doctor.numColegiado"
+      />
+
+      <label for="cedula">Cedula</label>
       <input
         id="cedula"
         type="text"
@@ -31,7 +42,7 @@
         class="form-control"
         name="cedula"
         required
-        [(ngModel)]="paciente.cedula"
+        [(ngModel)]="doctor.cedula"
       />
 
       <label for="nombre">Nombre</label>
@@ -42,29 +53,18 @@
         class="form-control"
         name="nombre"
         required
-        [(ngModel)]="paciente.nombre"
+        [(ngModel)]="doctor.nombre"
       />
 
-      <label for="edad">Edad</label>
+      <label for="especialidad">Especialidad</label>
       <input
-        id="edad"
-        type="number"
-        #edad="ngModel"
-        class="form-control"
-        name="edad"
-        required
-        [(ngModel)]="paciente.edad"
-      />
-
-      <label for="direccion">Dirección</label>
-      <input
-        id="direccion"
+        id="especialidad"
         type="text"
-        #direccion="ngModel"
+        #especialidad="ngModel"
         class="form-control"
-        name="direccion"
+        name="especialidad"
         required
-        [(ngModel)]="paciente.direccion"
+        [(ngModel)]="doctor.especialidad"
       />
 
       <div class="form-group">
@@ -76,7 +76,7 @@
           class="form-control"
           name="telefono"
           required
-          [(ngModel)]="paciente.telefono"
+          [(ngModel)]="doctor.telefono"
           pattern="[0-9]{12}"
         />
         <small class="form-text text-muted"
@@ -91,7 +91,7 @@
         class="form-control"
         name="email"
         required
-        [(ngModel)]="paciente.email"
+        [(ngModel)]="doctor.email"
       />
 
       <label for="contrasena">Contraseña</label>
@@ -102,8 +102,22 @@
         class="form-control"
         name="contrasena"
         required
-        [(ngModel)]="paciente.contrasena"
+        [(ngModel)]="doctor.contrasena"
       />
+
+      <label for="tipoMed"
+        >Tipo de Medico ("Administrador" o bien "Corriente")</label
+      >
+      <input
+        id="tipoMed"
+        type="text"
+        #tipoMed="ngModel"
+        class="form-control"
+        name="tipoMed"
+        required
+        [(ngModel)]="doctor.TipoMedico"
+      />
+      <small class="form-text text-muted">Respete las mayusculas.</small>
     </div>
 
     <div class="text-center mt-3">
@@ -114,13 +128,6 @@
       >
         Registrar
       </button>
-    </div>
-
-    <div class="text-center mt-3">
-      <a [routerLink]="['/login']">¿Ya tienes una cuenta? Inicia sesión</a>
-    </div>
-    <div class="text-center mt-3">
-      <a class="text-secondary" [routerLink]="['/loginDoc']">Eres Medico?</a>
     </div>
   </form>
 </div>

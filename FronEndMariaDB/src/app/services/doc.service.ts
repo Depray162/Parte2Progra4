@@ -41,7 +41,7 @@ export class DocService {
     let params = 'data=' + doctorJson;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     let options = { headers };
-    return this._http.post(this.urlAPI + 'administrador/medico', params, options);
+    return this._http.post(this.urlAPI + 'medico/store', params, options);
   }
 
   getIdentityFromStorage() {
