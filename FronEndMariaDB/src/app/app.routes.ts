@@ -5,6 +5,8 @@ import { LoginDocComponent } from './components/login-doc/login-doc.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { MedicoComponent } from './components/medico/medico.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UpdateDocComponent } from './components/update-doc/update-doc.component';
+
 
 export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
@@ -12,7 +14,10 @@ export const routes: Routes = [
     {path:'loginDoc',component:LoginDocComponent},
     
     {path:'landing-components',component:LandingComponentsComponent},
+
     {path:'adminComponent', component:AdminComponent},
     {path:'medicoCompont',component: MedicoComponent},
+    {path:'updateDoc',component:UpdateDocComponent},
+
     {path:'register',component: RegisterComponent}
 ];
