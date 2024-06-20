@@ -10,6 +10,7 @@ export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
     {path:'login',component:LoginComponent},
     {path:'loginDoc',component:LoginDocComponent},
+    
     {path:'landing-components',component:LandingComponentsComponent},
     {path:'adminComponent', component:AdminComponent},
     {path:'medicoCompont',component: MedicoComponent},
