@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './register-medico.component.html',
   styleUrl: './register-medico.component.css'
 })
-export class RegisterMedComponent {
+export class RegisterMedicoComponent {
 
   public status: number;
   public doctor: Doctor;

@@ -25,7 +25,8 @@ class cita extends Model
         "fechaCita",
         "horaCita",
         "idPaciente",
-        "idMedico"
+        "idMedico",
+        "estado"
     ];
 
     public function paciente()

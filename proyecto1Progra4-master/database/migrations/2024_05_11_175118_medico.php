@@ -28,15 +28,16 @@ return new class extends Migration
            $table->enum('TipoMedico', ['Corriente', 'Administrador'])->default('Corriente');
         });
 
-        /*DB::table('medico')->insert([
+        DB::table('medico')->insert([
             'numColegiado' => '1558',
-            'cedula' => '504350769',
+            'cedula' => '2123',
             'nombre' => 'Kevin Salazar Bravo',
             'especialidad' => 'Oncologia',
             'telefono' => '123456789',
             'email' => 'kevin@example.com',
-            'contrasena'=> 'ickkck'
-        ]);*/
+            'contrasena'=> '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4',
+            'TipoMedico'=> 'Administrador'
+        ]);
     }
 
     /**

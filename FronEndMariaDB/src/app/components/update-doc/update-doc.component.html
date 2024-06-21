@@ -24,7 +24,7 @@
     >
       <div class="form-group">
         <label for="numColegiado">Número de colegiado</label>
-        <input
+        <input disabled
           id="numColegiado"
           type="text"
           #numColegiado="ngModel"
@@ -90,17 +90,6 @@
           name="email"
           required
           [(ngModel)]="doctor.email"
-        />
-  
-        <label for="contrasena">Contraseña</label>
-        <input
-          id="contrasena"
-          type="password"
-          #contrasena="ngModel"
-          class="form-control"
-          name="contrasena"
-          required
-          [(ngModel)]="doctor.contrasena"
         />
   
         <label for="tipoMed">Tipo de Médico ("Administrador" o "Corriente")</label>

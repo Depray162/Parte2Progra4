@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("fechaSolicitud", 60);
             $table->string("fechaCita", 60);
             $table->string("horaCita", 60);
+            $table->enum('estado', ['Pediente', 'EnProgreso','Completada'])->default('Pediente');
             $table->unsignedBigInteger("idPaciente")->nullable(false);
             $table->unsignedBigInteger("idMedico")->nullable(false);
 
