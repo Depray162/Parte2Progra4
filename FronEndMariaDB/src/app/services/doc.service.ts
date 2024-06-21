@@ -101,13 +101,36 @@ export class DocService {
   }
 
   getDoctorById(id: number): Observable<Doctor> {
-    return this._http.get<Doctor>(`${this.urlAPI}administrador/medico/${id}` );
+    let headers;
+    let bearerToken = sessionStorage.getItem('token');
+    if (bearerToken) {
+      headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('bearerToken', bearerToken);
+    } else {
+      headers = new HttpHeaders().set('Content-Type', 'application/json');
+    }
+    let options = { headers };
+
+    return this._http.get<Doctor>(`${this.urlAPI}administrador/medico/${id}`,options);
   }
+  
 
   updateDoctor(doctor: Doctor): Observable<any> {
+
+
     const params = JSON.stringify(doctor);
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this._http.put(`${this.urlAPI}administrador/medico/${doctor.idMedico}`, params, { headers});
+
+    let headers;
+    let bearerToken = sessionStorage.getItem('token');
+    if (bearerToken) {
+      headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('bearerToken', bearerToken);
+    } else {
+      headers = new HttpHeaders().set('Content-Type', 'application/json');
+    }
+    let options = { headers };
+
+    return this._http.put(`${this.urlAPI}administrador/medico/${doctor.idMedico}`, params, options);
   }
 
 }

@@ -72,7 +72,8 @@ class CitaController extends Controller
             'fechaCita' => $request->fechaCita,
             'horaCita' => $request->horaCita,
             'idPaciente' => $request->idPaciente,
-            'idMedico' => $request->idMedico
+            'idMedico' => $request->idMedico,
+            'estado' => $request->estado
         ]);
 
         if (!$cita) {
@@ -140,6 +141,7 @@ class CitaController extends Controller
             'fechaCita' => 'required',
             'horaCita' => 'required',
             'idPaciente' => 'exists:paciente,idPaciente',
+            'estado' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -157,6 +159,7 @@ class CitaController extends Controller
         $cita->fechaCita = $request->fechaCita;
         $cita->horaCita = $request->horaCita;
         $cita->idPaciente = $request->idPaciente;
+        $cita->estado = $request->estado;
 
         $cita->save();
 

@@ -9,6 +9,9 @@ import { AdminPacienteComponent } from './components/admin-paciente/admin-pacien
 import { UpdateDocComponent } from './components/update-doc/update-doc.component';
 import { RegisterMedComponent } from './components/register-medico/register-medico.component';
 import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
+import { ExpedienteComponent } from './components/expediente/expediente.component';
+import { HistorialComponent } from './components/historial/historial.component';
+
 
 export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
@@ -20,11 +23,13 @@ export const routes: Routes = [
     {path:'adminComponent', component:AdminComponent},
     {path:'medicoCompont',component: MedicoComponent},
 
+    {path:'HistorialAdmin', component:HistorialComponent},
+    {path:'expedienteAdmin', component:ExpedienteComponent},
 
 
     { path: 'editMedico/:id', component: UpdateDocComponent },
     {path:'register',component: RegisterComponent},
-    {path:'registerMed',component: RegisterMedComponent},
+    {path:'registerMed',component: RegisterMedicoComponent},
     {path:'adminPaciente',component: AdminPacienteComponent},
     {path:'agendarCita',component: AgendarCitaComponent}
 ];
