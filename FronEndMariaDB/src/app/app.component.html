@@ -29,7 +29,9 @@
           </li>
           } @if(identity.tipo === "paciente"){
           <li class="nav-item d-flex align-items-center">
-            <a class="nav-link ms-2" [routerLink]="['']">Ver Informacion</a>
+            <a class="nav-link ms-2" [routerLink]="['/informacion']"
+              >Ver Informacion</a
+            >
           </li>
 
           <li class="nav-item d-flex align-items-center">
@@ -37,20 +39,10 @@
               >Agendar Cita</a
             >
           </li>
-          }
-          @if(identity.tipo === "paciente"){
-            <li class="nav-item d-flex align-items-center">
-              <a class="nav-link ms-2" [routerLink]="['']">Ver Informacion</a> 
-            </li>
-            
-            <li class="nav-item d-flex align-items-center">
-              <a class="nav-link ms-2" [routerLink]="['']">Agendar Cita</a> 
-            </li>
-          }
-          @if(identity.tipo === "medico"){
-            <li class="nav-item d-flex align-items-center">
-              <a class="nav-link ms-2" [routerLink]="['']">Ver Informacion</a> 
-            </li>
+          } @if(identity.tipo === "medico"){
+          <li class="nav-item d-flex align-items-center">
+            <a class="nav-link ms-2" [routerLink]="['']">Ver Informacion</a>
+          </li>
           }
 
           <li class="nav-item d-flex align-items-center">
