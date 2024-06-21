@@ -7,7 +7,8 @@ import { MedicoComponent } from './components/medico/medico.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminPacienteComponent } from './components/admin-paciente/admin-paciente.component';
 import { UpdateDocComponent } from './components/update-doc/update-doc.component';
-import { RegisterMedicoComponent } from './components/register-medico/register-medico.component';
+import { RegisterMedComponent } from './components/register-medico/register-medico.component';
+import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
 import { ExpedienteComponent } from './components/expediente/expediente.component';
 import { HistorialComponent } from './components/historial/historial.component';
 
@@ -30,4 +31,5 @@ export const routes: Routes = [
     {path:'register',component: RegisterComponent},
     {path:'registerMed',component: RegisterMedicoComponent},
     {path:'adminPaciente',component: AdminPacienteComponent},
+    {path:'agendarCita',component: AgendarCitaComponent}
 ];
