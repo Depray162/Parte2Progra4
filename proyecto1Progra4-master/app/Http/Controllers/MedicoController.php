@@ -244,4 +244,32 @@ class MedicoController extends Controller
             return response()->json($data, 201);
         }
     }
+
+      public function getMedicoContra($id)
+    {
+        $medico = Medico::find($id);
+
+        if (!$medico) {
+            return response()->json(['message' => 'Medico no encontrado'], 404);
+        }
+
+        $jwt = new JwtAuth();
+        $contrasena = $jwt->verifyTokenMed($medico->contrasena);
+
+        $data = [
+            'idMedico' => $medico->idMedico,
+            'numColegiado' => $medico->numColegiado,
+            'cedula' => $medico->cedula,
+            'nombre' => $medico->nombre,
+            'especialidad' => $medico->especialidad,
+            'telefono' => $medico->telefono,
+            'email' => $medico->email,
+            'contrasena' => $contrasena,
+            'TipoMedico' => $medico->TipoMedico,
+            'status' => 200
+        ];
+
+        return response()->json($data, 200);
+    }
 }
+

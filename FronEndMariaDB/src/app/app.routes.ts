@@ -7,7 +7,7 @@ import { MedicoComponent } from './components/medico/medico.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminPacienteComponent } from './components/admin-paciente/admin-paciente.component';
 import { UpdateDocComponent } from './components/update-doc/update-doc.component';
-import { RegisterMedComponent } from './components/register-medico/register-medico.component';
+import { RegisterMedicoComponent } from './components/register-medico/register-medico.component';
 
 export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
@@ -23,6 +23,6 @@ export const routes: Routes = [
 
     { path: 'editMedico/:id', component: UpdateDocComponent },
     {path:'register',component: RegisterComponent},
-    {path:'registerMed',component: RegisterMedComponent},
+    {path:'registerMed',component: RegisterMedicoComponent},
     {path:'adminPaciente',component: AdminPacienteComponent},
 ];

@@ -52,9 +52,14 @@ Route::prefix('v1')->group(
             Route::delete('/historial/eliminar/{id}', [HistorialController::class, 'destroy'])->middleware(ApiAuthMiddlewareMed::class);
         });
 
+        Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']]);
+
         //Rutas administrador Eddier (el mejor)
         Route::group(['prefix' => '/administrador'], function () {
             Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
+
+            Route::get('/modificarMedico/{id}', [MedicoController::class, 'getMedicoContra'])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
+
             Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/cita', CitaController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/historial', HistorialController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);

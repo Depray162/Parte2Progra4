@@ -46,7 +46,7 @@ export class UpdateDocComponent implements OnInit {
         if (response.status === 200) {
           form.reset();
           this.changeStatus(0);
-          this.router.navigate(['/EditMedicoComponent']);
+          this.router.navigate(['/adminComponent']);
         } else {
           this.changeStatus(1);
         }
@@ -63,4 +63,5 @@ export class UpdateDocComponent implements OnInit {
       this.status = -1;
     }, 5000);
   }
+
 }
