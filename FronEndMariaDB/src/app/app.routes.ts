@@ -8,6 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { AdminPacienteComponent } from './components/admin-paciente/admin-paciente.component';
 import { UpdateDocComponent } from './components/update-doc/update-doc.component';
 import { RegisterMedicoComponent } from './components/register-medico/register-medico.component';
+import { ExpedienteComponent } from './components/expediente/expediente.component';
+import { HistorialComponent } from './components/historial/historial.component';
+
 
 export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
@@ -19,6 +22,8 @@ export const routes: Routes = [
     {path:'adminComponent', component:AdminComponent},
     {path:'medicoCompont',component: MedicoComponent},
 
+    {path:'HistorialAdmin', component:HistorialComponent},
+    {path:'expedienteAdmin', component:ExpedienteComponent},
 
 
     { path: 'editMedico/:id', component: UpdateDocComponent },
