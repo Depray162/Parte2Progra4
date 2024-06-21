@@ -1,0 +1,105 @@
+<div class="col-md-12 mt-4">
+  <div class="text-center mt-3">
+    <h3>Agenda una cita</h3>
+  </div>
+
+  <span>
+    @switch (status) { @case (0) {
+    <div class="alert alert-success"><p>Registro exitoso!</p></div>
+    } @case (1) {
+    <div class="alert alert-warning"><p>No se pudo agregar la cita!</p></div>
+    } @case (2) {
+    <div class="alert alert-danger"><p>Error de servidor!</p></div>
+    } }
+  </span>
+
+  <form
+    class="col-md-8 mx-auto"
+    #signupForm="ngForm"
+    (ngSubmit)="onSubmit(signupForm)"
+  >
+    <div class="form-group">
+      <label for="motivo">Motivo de la cita</label>
+      <input
+        id="motivo"
+        type="text"
+        #motivo="ngModel"
+        class="form-control"
+        name="motivo"
+        required
+        [(ngModel)]="cita.motivo"
+      />
+
+      <label for="area">Área</label>
+      <input
+        id="area"
+        placeholder="Oncologia, Ortopedia ,etc."
+        type="text"
+        #area="ngModel"
+        class="form-control"
+        name="area"
+        required
+        [(ngModel)]="cita.area"
+      />
+
+      <label for="fechaSolicitud">Fecha de Solicitud</label>
+      <input
+        id="fechaSolicitud"
+        placeholder="Fecha en la que se solicita la cita medica."
+        type="date"
+        #fechaSolicitud="ngModel"
+        class="form-control"
+        name="fechaSolicitud"
+        required
+        [(ngModel)]="cita.fechaSolicitud"
+      />
+
+      <label for="fecha">Fecha</label>
+      <input
+        id="fecha"
+        type="date"
+        #fecha="ngModel"
+        class="form-control"
+        name="fecha"
+        required
+        [(ngModel)]="cita.fechaCita"
+      />
+
+      <label for="hora">Hora</label>
+      <input
+        id="hora"
+        type="time"
+        #hora="ngModel"
+        class="form-control"
+        name="hora"
+        required
+        [(ngModel)]="cita.horaCita"
+      />
+
+      <label for="medico">Médico</label>
+      <select
+        id="medico"
+        class="form-control"
+        name="medico"
+        required
+        [(ngModel)]="cita.idMedico"
+      >
+        @for (doctor of medicos; track doctor.nombre) {
+        <option [value]="doctor.idMedico">
+          {{ doctor.nombre }}
+        </option>
+        }
+      </select>
+    </div>
+
+    <div class="text-center mt-3">
+      <button
+        type="submit"
+        class="btn btn-primary mt-2"
+        [disabled]="signupForm.invalid"
+      >
+        Agendar Cita
+      </button>
+    </div>
+  </form>
+</div>

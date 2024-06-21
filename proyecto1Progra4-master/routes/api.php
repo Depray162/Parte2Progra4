@@ -25,7 +25,7 @@ Route::prefix('v1')->group(
             Route::get('/{id}', [PacienteController::class, 'show'])->middleware([ApiAuthMiddlewarePac::class, ApiAuthMiddlewareVerifyPac::class]);
             Route::put('/actualizar/{id}', [PacienteController::class, 'update'])->middleware([ApiAuthMiddlewarePac::class, ApiAuthMiddlewareVerifyPac::class]);
             Route::get('/cita/indexPac', [CitaController::class, 'indexCitaPac'])->middleware(ApiAuthMiddlewarePac::class);
-            Route::post('/cita/agregarPac', [CitaController::class, 'storeCitaPac'])->middleware(ApiAuthMiddlewarePac::class);
+            Route::post('/cita/agregarPac', [CitaController::class, 'storeCitaPac']);
             Route::get('/cita/{id}', [CitaController::class, 'showCitaPac'])->middleware(ApiAuthMiddlewarePac::class);
             Route::put('/cita/actualizar/{id}', [CitaController::class, 'updateCitaPac'])->middleware(ApiAuthMiddlewarePac::class);
             Route::delete('/cita/eliminar/{id}', [CitaController::class, 'destroyCitaPac'])->middleware(ApiAuthMiddlewarePac::class);
@@ -55,7 +55,7 @@ Route::prefix('v1')->group(
         //Rutas administrador Eddier (el mejor)
         Route::group(['prefix' => '/administrador'], function () {
             Route::resource('/paciente', PacienteController::class, ['except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
-            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
+            Route::resource('/medico', MedicoController::class, ['Except' => ['create', 'edit']]);
             Route::resource('/cita', CitaController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             Route::resource('/historial', HistorialController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
             route::resource('/expediente', ExpedienteController::class, ['Except' => ['create', 'edit']])->middleware(ApiAuthMiddlewareVerifyTipoMedico::class);
