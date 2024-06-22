@@ -11,7 +11,7 @@ import { RegisterMedicoComponent } from './components/register-medico/register-m
 import { AgendarCitaComponent } from './components/agendar-cita/agendar-cita.component';
 import { ExpedienteComponent } from './components/expediente/expediente.component';
 import { HistorialComponent } from './components/historial/historial.component';
-
+import { InformacionComponent } from './components/informacion/informacion.component';
 
 export const routes: Routes = [
     {path:'',component:LandingComponentsComponent},
@@ -31,5 +31,6 @@ export const routes: Routes = [
     {path:'register',component: RegisterComponent},
     {path:'registerMed',component: RegisterMedicoComponent},
     {path:'adminPaciente',component: AdminPacienteComponent},
-    {path:'agendarCita',component: AgendarCitaComponent}
+    {path:'agendarCita',component: AgendarCitaComponent},
+    {path:'informacion',component: InformacionComponent}
 ];
